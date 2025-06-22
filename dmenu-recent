@@ -1,0 +1,16 @@
+#!/bin/sh
+
+HISTFILE="${XDG_DATA_HOME:-$HOME/.local/share}/dmenu-recent-history"
+CMDLIST=$(dmenu_path)
+
+# Combine history and available commands
+ALL=$(printf "%s\n%s" "$CMDLIST" "$(cat "$HISTFILE" 2>/dev/null)")
+
+# Sort by frequency
+CHOICE=$(echo "$ALL" | awk '{count[$0]++} END {for (c in count) print count[c], c}' | sort -nr | cut -d' ' -f2- | dmenu -i -l 10)
+
+# Run and record
+[ -n "$CHOICE" ] && {
+    echo "$CHOICE" >> "$HISTFILE"
+    exec setsid "$CHOICE" >/dev/null 2>&1 &
+}

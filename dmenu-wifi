@@ -1,0 +1,25 @@
+#!/bin/sh
+
+# Set variables
+SSID=$(nmcli -f SSID,SECURITY device wifi list | awk 'NR>1 {print $1}' | sort -u | dmenu -i)
+[ -z "$SSID" ] && exit 1
+
+# Check if open or secured
+SECURITY=$(nmcli -f SSID,SECURITY device wifi list | grep -w "$SSID" | awk '{print $2}')
+
+if [ "$SECURITY" = "--" ] || [ -z "$SECURITY" ]; then
+    # Open network
+    nmcli device wifi connect "$SSID"
+else
+    # Ask for password
+    PASS=$(dmenu -i -p "Password for $SSID:" < /dev/null)
+    [ -z "$PASS" ] && exit 1
+    nmcli device wifi connect "$SSID" password "$PASS"
+fi
+
+# Optional notification (requires notify-send)
+if [ $? -eq 0 ]; then
+    notify-send "Wi-Fi" "Connected to $SSID"
+else
+    notify-send "Wi-Fi" "Failed to connect to $SSID"
+fi
