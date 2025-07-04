@@ -1,9 +1,10 @@
 #!/bin/bash
 
 # Start tmux session for Neovim
-tmux new-session -d -s notes -c ~/dev/notes 2>/dev/null && tmux new-session -d -s notes
+tmux has-session -t notes 2>/dev/null || tmux new-session -d -s notes -c ~/dev/notes
+
+# Launch Kitty (Neovim) 
 kitty --class nvim -e tmux attach -t notes &
 
-# Launch Zathura in workspace 9
-hyprctl dispatch workspace 8
+# Launch Zathura and move it to workspace 8
 zathura &
