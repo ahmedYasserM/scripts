@@ -6,5 +6,6 @@ tmux has-session -t notes 2>/dev/null || tmux new-session -d -s notes -c ~/dev/n
 # Launch Kitty (Neovim) 
 kitty --class nvim -e tmux attach -t notes &
 
-# Launch Zathura and move it to workspace 8
-zathura &
+# Launch sioyek
+sioyek --new-instance &
+
