@@ -19,6 +19,7 @@ A collection of powerful scripts for various system tasks and productivity impro
 | `vimMan` | Documentation Viewer | Opens man pages or Go documentation in vim |
 | `volume.sh` | Volume Control | Controls system volume (increase, decrease, or toggle mute) |
 | `wl` | Directory Watcher | Monitors directory changes and shows tree view |
+| `notes_and_zathura.sh` | Note taking | Opens a tmux session with neovim inside it and zathura in a specific workscpace in hyprland | 
 
 Each script is designed to enhance productivity and simplify common tasks in a Unix-like environment.
 
