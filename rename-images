@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+i=1
+fd -d 1 -e png -e jpg | while IFS= read -r img; do 
+  ext="${img##*.}"
+  new=$(printf "wallpaper-%03d.%s" "$i" "$ext")
+  mv $img $new
+  ((i++))
+done
+
+echo "Renaming Images Done..."
