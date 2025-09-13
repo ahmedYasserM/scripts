@@ -17,16 +17,16 @@ else
     while read -r session; do
       echo -e "\033[1;34m$session\033[0m"
     done <<<"$tmux_sessions"
-  } | sk --print-query --ansi)
+  } | tac | fzf --print-query --ansi)
 
-  skimatatus=$?
+  fzfStatus=$?
 fi
 
 if [[ -z $selected ]]; then
   exit 0
 fi
 
-if [[ $skimStatus -eq 1 ]]; then
+if [[ $fzfStatus -eq 1 ]]; then
   selected_name=$selected
   selected=$HOME
 else

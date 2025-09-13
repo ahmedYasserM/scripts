@@ -15,15 +15,13 @@ A collection of powerful scripts for various system tasks and productivity impro
 | `keys` | Key Event Monitor | Shows keyboard key events using xev |
 | `mount.sh` | USB Mounter | Automatically mounts/unmounts USB drives with proper permissions |
 | `rgaph` | Git Graph Watcher | Monitors a directory and updates git graph visualization |
-| `s` | Session Manager | Manages tmux sessions for development directories |
+| `ts` | Session Manager | Manages tmux sessions for development directories |
 | `vimMan` | Documentation Viewer | Opens man pages or Go documentation in vim |
 | `volume.sh` | Volume Control | Controls system volume (increase, decrease, or toggle mute) |
 | `wl` | Directory Watcher | Monitors directory changes and shows tree view |
-| `notes_and_sioyek.sh` | Note taking | Opens a tmux session with neovim inside it and sioyek | 
+| `notes_and_sioyek.sh` | Note taking | Opens a tmux session with neovim inside it and sioyek |
 
 Each script is designed to enhance productivity and simplify common tasks in a Unix-like environment.
-
-
 
 > [!IMPORTANT]
 > I didn't write all of these scripts, but I found them useful and decided to include them in this collection.
