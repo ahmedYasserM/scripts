@@ -1,0 +1,12 @@
+#!/bin/bash
+
+HEADING_DATE=$(date +"%A, %B %d, %Y")
+FILENAME=$(date +"%Y-%m-%d.md")
+FILE_PATH="$HOME/docs/todos/${FILENAME}"
+
+if [ ! -s "$FILE_PATH" ]; then
+    echo "# $HEADING_DATE" >"$FILE_PATH"
+    echo ""
+fi
+
+nvim "$FILE_PATH"
