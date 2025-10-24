@@ -3,7 +3,9 @@
 MENU_OPTIONS="🖼️ Set Wallpaper
 🔄 Restart
 🛑 Poweroff
+↪️ Logout
 🌙 Sleep
+📝 Clipboard
 📥 Install Web App
 🗑️ Remove Web App
 🌐 Setup Wifi"
@@ -26,17 +28,22 @@ case "$SELECTION" in
     ;;
 
 "🔄 Restart")
-    systemctl reboot
+    reboot
     ;;
 
 "🛑 Poweroff")
-    systemctl poweroff
+    poweroff
     ;;
 
+"↪️ Logout")
+    hyprctl dispatch exit
+    ;;
 "🌙 Sleep")
-    systemctl suspend
+    # systemctl suspend
     ;;
-
+"📝 Clipboard")
+    "$SCRIPT_DIR/cliphist-fuzzel-img.sh"
+    ;;
 "📥 Install Web App")
     "$SCRIPT_DIR/float-kitty.sh" "$SCRIPT_DIR/install-webapp.sh"
     ;;
@@ -45,7 +52,7 @@ case "$SELECTION" in
     "$SCRIPT_DIR/float-kitty.sh" "$SCRIPT_DIR/remove-webapp.sh"
     ;;
 "🌐 Setup Wifi")
-    kitty impala
+    nm-applet
     ;;
 *)
     # Default exit case if fuzzel is cancelled or an unlisted option is chosen

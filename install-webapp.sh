@@ -32,7 +32,7 @@ cat >"$DESKTOP_FILE" <<EOF
 Version=1.0
 Name=$APP_NAME
 Comment=$APP_NAME
-Exec=omarchy-launch-webapp $APP_URL
+Exec=launch-webapp.sh $APP_URL
 Terminal=false
 Type=Application
 Icon=$ICON_PATH
