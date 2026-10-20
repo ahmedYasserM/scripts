@@ -17,7 +17,7 @@ else
     while read -r session; do
       echo -e "\033[1;34m$session\033[0m"
     done <<<"$tmux_sessions"
-  } | tac | fzf --print-query --ansi)
+  } | tac | fzf --print-query --ansi --bind='alt-j:down,alt-k:up')
 
   fzfStatus=$?
 fi
